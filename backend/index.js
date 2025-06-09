@@ -10,7 +10,11 @@ const PORT = process.env.PORT || 5000;
 
 // Хранение пользователей по презентациям
 const presentationsUsers = {};
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://buildtask6.vercel.app",
+  })
+);
 app.use(express.json());
 app.use("/api/presentations", presentationsRoutes);
 const server = http.createServer(app);
